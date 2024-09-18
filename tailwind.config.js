@@ -10,10 +10,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],  // Menggunakan default font dan Inter var
       },
       colors: {
-        primary: '#227377',  // Warna kustom ditambahkan di sini
+        primary: '#227377',  // Warna primary kustom
       },
     },
   },
