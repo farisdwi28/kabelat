@@ -16,7 +16,7 @@
             <h1 class="text-3xl font-semibold mb-8">Selamat Datang !</h1>
             <div class="w-full lg:w-2/3 bg-white shadow-lg p-8 rounded-lg">
                 <form action="#" method="POST">
-                    <x-email-input label="Username" name="username" />
+                    <x-custom-input label="Email" name="email" type="email"/>
                 
                     <x-password-input label="Password" name="password" />
                     

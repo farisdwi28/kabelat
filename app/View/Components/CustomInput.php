@@ -6,15 +6,24 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class EmailInput extends Component
+class CustomInput extends Component
 {
     public $label;
     public $name;
+    public $type;
     
-    public function __construct($label = 'Email', $name = 'email')
+    /**
+     * Create a new component instance.
+     *
+     * @param string $label
+     * @param string $name
+     * @param string $type
+     */
+    public function __construct($label = 'Input', $name = 'input', $type = 'text')
     {
         $this->label = $label;
         $this->name = $name;
+        $this->type = $type;
     }
 
     /**
@@ -22,6 +31,6 @@ class EmailInput extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.email-input');
+        return view('components.custom-input');
     }
 }
