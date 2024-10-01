@@ -1,15 +1,15 @@
-<header class="bg-white">
+<header class="bg-white" x-data="{ isOpen: false }">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global"
         x-data="{ isProgramOpen: false, isInformasiOpen: false, isTentangOpen: false }">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Kabelat</span>
-                <img class="h-8 w-auto" src="{{ asset('img/Logo Kabelat.svg') }}" alt="Logo Kabelat">
+                <img class="h-12 w-auto" src="{{ asset('img/Logo Kabelat.svg') }}" alt="Logo Kabelat">
             </a>
         </div>
         <div class="flex lg:hidden">
-            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                @click="isMenuOpen = !isMenuOpen">
+            <button @click="isOpen = !isOpen" type="button"
+                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
                 <span class="sr-only">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     aria-hidden="true">
@@ -142,21 +142,20 @@
             <x-button label="Masuk" class="bg-primary text-white px-6 py-2" />
         </div>
     </nav>
-    <!-- Mobile menu, show/hide based on menu open state. -->
-    <div x-data="{isOpen:false ,isProgramOpen: false, isInformasiOpen: false, isTentangOpen: false }" class="lg:hidden" role="dialog" aria-modal="true">
-        <!-- Background backdrop, show/hide based on slide-over state. -->
-        <div @click="isOpen = true" class="fixed inset-0 z-10"></div>
-        <div x-show="isOpen"
-            class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+    <div x-data="{isProgramOpen: false, isInformasiOpen: false, isTentangOpen: false }" class="lg:hidden" role="dialog" aria-modal="true">
+        <div x-show="isOpen" x-transition:enter="transition ease-out duration-2 transform"
+        x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-2 transform" x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95" class="lg:hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Kabelat</span>
-                    <img class="h-8 w-auto" src="{{ asset('img/Logo Kabelat.svg') }}" alt="Logo Kabelat">
+                    <img class="h-12 w-auto" src="{{ asset('img/Logo Kabelat.svg') }}" alt="Logo Kabelat">
                 </a>
                 <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="isOpen = false">
                     <span class="sr-only">Close menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -165,7 +164,7 @@
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="space-y-2 py-6">
                         <a href="#"
-                        class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Beranda</a>
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Beranda</a>
                         <div class="-mx-3">
                             <button type="button" @click="isProgramOpen = !isProgramOpen"
                                 class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primary hover:bg-gray-50"
@@ -179,7 +178,6 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-                            <!-- 'Product' sub-menu, show/hide based on menu state. -->
                             <div x-show="isProgramOpen" class="mt-2 space-y-2" id="disclosure-1">
                                 <a href="#"
                                     class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Analytics</a>
@@ -187,48 +185,47 @@
                         </div>
                         <a href="#"
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Komunitas</a>
-                            <div class="-mx-3">
-                                <button type="button" @click="isInformasiOpen = !isInformasiOpen"
-                                    class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primary hover:bg-gray-50"
-                                    aria-controls="disclosure-1" aria-expanded="false">
-                                    Informasi
-                                    <svg :class="{ 'rotate-180': isInformasiOpen }"
-                                        class="h-5 w-5 flex-none transition-transform" viewBox="0 0 20 20"
-                                        fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <!-- 'Product' sub-menu, show/hide based on menu state. -->
-                                <div x-show="isInformasiOpen" class="mt-2 space-y-2" id="disclosure-1">
-                                    <a href="#"
-                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Analytics</a>
-                                </div>
+                        <div class="-mx-3">
+                            <button type="button" @click="isInformasiOpen = !isInformasiOpen"
+                                class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primary hover:bg-gray-50"
+                                aria-controls="disclosure-1" aria-expanded="false">
+                                Informasi
+                                <svg :class="{ 'rotate-180': isInformasiOpen }"
+                                    class="h-5 w-5 flex-none transition-transform" viewBox="0 0 20 20"
+                                    fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="isInformasiOpen" class="mt-2 space-y-2" id="disclosure-1">
+                                <a href="#"
+                                    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Analytics</a>
                             </div>
+                        </div>
                         <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Galeri Kegiatan</a>
+                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Galeri
+                            Kegiatan</a>
                         <a href="#"
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Profil</a>
-                            <div class="-mx-3">
-                                <button type="button" @click="isTentangOpen = !isTentangOpen"
-                                    class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primary hover:bg-gray-50"
-                                    aria-controls="disclosure-1" aria-expanded="false">
-                                    Tentang
-                                    <svg :class="{ 'rotate-180': isTentangOpen }"
-                                        class="h-5 w-5 flex-none transition-transform" viewBox="0 0 20 20"
-                                        fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <!-- 'Product' sub-menu, show/hide based on menu state. -->
-                                <div x-show="isTentangOpen" class="mt-2 space-y-2" id="disclosure-1">
-                                    <a href="#"
-                                        class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Analytics</a>
-                                </div>
+                        <div class="-mx-3">
+                            <button type="button" @click="isTentangOpen = !isTentangOpen"
+                                class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-primary hover:bg-gray-50"
+                                aria-controls="disclosure-1" aria-expanded="false">
+                                Tentang
+                                <svg :class="{ 'rotate-180': isTentangOpen }"
+                                    class="h-5 w-5 flex-none transition-transform" viewBox="0 0 20 20"
+                                    fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div x-show="isTentangOpen" class="mt-2 space-y-2" id="disclosure-1">
+                                <a href="#"
+                                    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Analytics</a>
                             </div>
+                        </div>
                     </div>
                     <div class="py-6">
                         <x-button label="Masuk" class="-mx-3 bg-primary text-white px-6 py-2" />

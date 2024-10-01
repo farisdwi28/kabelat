@@ -30,7 +30,7 @@
             </div>
             <div class="w-full lg:w-2/3 bg-white shadow-lg p-8 rounded-lg">
                 <form action="#" method="POST">
-                    <x-custom-input label="No-NIK" name="No-NIK" type="number" />
+                    <x-custom-input label="No-NIK" name="No-NIK" type="text"/>
                     <x-button label="Berikutnya"
                         class="bg-black hover:bg-gray-800 text-white font-semibold rounded-md py-2 px-4 w-full" />
                 </form>
@@ -39,7 +39,6 @@
                 <p>Sudah Punya Akun? <a href="#" class="text-primary font-semibold hover:underline">Masuk</a></p>
             </div>
         </div>
-
         <div class="hidden lg:block w-1/2 h-screen">
             <img src="{{ asset('img/Login Image.svg') }}" alt="Bookshelf Image" class="object-cover w-full h-full">
         </div>

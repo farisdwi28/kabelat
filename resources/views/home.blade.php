@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
+<body class="antialiased">
+
+    <!-- Include Navbar Component -->
     <x-navbar />
+
+    <!-- Single Card Component -->
+    <x-card-component 
+        image="{{ asset('img/Login Image.svg') }}" 
+        title="Bunda Literasi" 
+        date="2024-07-02" 
+        description="Pelatihan Literasi Digital untuk Orang..."
+    />
 </body>
 </html>
