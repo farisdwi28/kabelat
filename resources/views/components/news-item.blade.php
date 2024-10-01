@@ -1,4 +1,3 @@
-<!-- resources/views/components/news-item.blade.php -->
 <a class="group block rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 focus:outline-none" href="#">
     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div class="shrink-0 relative rounded-xl overflow-hidden w-full sm:w-48 h-48 sm:h-32">
