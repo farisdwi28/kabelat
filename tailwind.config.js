@@ -6,6 +6,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {
@@ -14,8 +15,11 @@ export default {
       },
       colors: {
         primary: '#227377',  // Warna primary kustom
+        card1: '#EEFFF5', // Warna card
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('preline/plugin'),
+  ],
 }
