@@ -21,3 +21,7 @@ Route::get('/BuatAkun', function () {
 Route::get('/ProgramDispusip', function () {
     return view('ProgramDispusip');
 });
+
+Route::get('/Pengumuman', function () {
+    return view('Pengumuman');
+});
