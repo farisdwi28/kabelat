@@ -25,3 +25,15 @@ Route::get('/ProgramDispusip', function () {
 Route::get('/Pengumuman', function () {
     return view('Pengumuman');
 });
+
+Route::get('/TentangKami', function () {
+    return view('TentangKami');
+});
+
+Route::get('/HubungiKami', function () {
+    return view('HubungiKami');
+});
+
+Route::get('/DetailPengumuman', function () {
+    return view('DetailPengumuman');
+});

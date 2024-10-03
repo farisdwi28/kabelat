@@ -2,7 +2,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global"
         x-data="{ isProgramOpen: false, isInformasiOpen: false, isTentangOpen: false }">
         <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
+            <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Kabelat</span>
                 <img class="h-12 w-auto" src="{{ asset('img/Logo Kabelat.svg') }}" alt="Logo Kabelat">
             </a>
@@ -19,7 +19,7 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm font-semibold leading-6 text-primary">Beranda</a>
+            <a href="/" class="text-sm font-semibold leading-6 text-primary">Beranda</a>
             <div class="relative">
                 <button type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-primary"
                     @click="isProgramOpen = !isProgramOpen; isInformasiOpen = false; isTentangOpen = false">
@@ -158,7 +158,7 @@
                                 </svg>
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-primary">
+                                <a href="/Pengumuman" class="block font-semibold text-primary">
                                     Pengumuman
                                     <span class="absolute inset-0"></span>
                                 </a>
@@ -211,7 +211,7 @@
                                 </svg>
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-primary">
+                                <a href="/TentangKami" class="block font-semibold text-primary">
                                     Tentang Dispusip
                                     <span class="absolute inset-0"></span>
                                 </a>
@@ -233,7 +233,7 @@
                                 </svg>
                             </div>
                             <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-primary">
+                                <a href="/HubungiKami" class="block font-semibold text-primary">
                                     Hubungi Kami
                                     <span class="absolute inset-0"></span>
                                 </a>
@@ -245,7 +245,7 @@
             </div>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <x-button label="Masuk" class="bg-primary text-white px-6 py-2" />
+            <a href="/login"><x-button label="Masuk" class="bg-primary text-white px-6 py-2" /></a>
         </div>
     </nav>
     <div x-data="{ isProgramOpen: false, isInformasiOpen: false, isTentangOpen: false }" class="lg:hidden" role="dialog" aria-modal="true">
@@ -257,7 +257,7 @@
             <div
                 class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                 <div class="flex items-center justify-between">
-                    <a href="#" class="-m-1.5 p-1.5">
+                    <a href="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">Kabelat</span>
                         <img class="h-12 w-auto" src="{{ asset('img/Logo Kabelat.svg') }}" alt="Logo Kabelat">
                     </a>
@@ -272,7 +272,7 @@
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
-                            <a href="#"
+                            <a href="/"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-primary hover:bg-gray-50">Beranda</a>
                             <div class="-mx-3">
                                 <button type="button" @click="isProgramOpen = !isProgramOpen"
@@ -320,7 +320,7 @@
                                 <div x-show="isInformasiOpen" class="mt-2 space-y-2" id="disclosure-1">
                                     <a href="#"
                                         class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Berita</a>
-                                    <a href="#"
+                                    <a href="/Pengumuman"
                                         class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Pengumuman</a>
                                 </div>
                             </div>
@@ -343,17 +343,17 @@
                                     </svg>
                                 </button>
                                 <div x-show="isTentangOpen" class="mt-2 space-y-2" id="disclosure-1">
-                                    <a href="#"
+                                    <a href="/TentangKami"
                                         class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Tentang
                                         Dispusip</a>
-                                    <a href="#"
+                                    <a href="/HubungiKami"
                                         class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-primary hover:bg-gray-50">Hubungi
                                         Kami</a>
                                 </div>
                             </div>
                         </div>
                         <div class="py-6">
-                            <x-button label="Masuk" class="-mx-3 bg-primary text-white px-6 py-2" />
+                            <a href="/login"><x-button label="Masuk" class="-mx-3 bg-primary text-white px-6 py-2" /></a>
                         </div>
                     </div>
                 </div>

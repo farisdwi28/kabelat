@@ -6,17 +6,21 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Pengumuman extends Component
+class DetailPengumuman extends Component
 {
     public $title;
+    public $author;
     public $date;
-    public $image;
+    public $img;
+    public $isi;
 
-    public function __construct($title, $date, $image)
+    public function __construct($title, $author, $date, $img, $isi)
     {
         $this->title = $title;
+        $this->author = $author;
         $this->date = $date;
-        $this->image = $image;
+        $this->img = $img;
+        $this->isi = $isi;
     }
 
     /**
@@ -24,6 +28,6 @@ class Pengumuman extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.news-item');
+        return view('components.detail-pengumuman');
     }
 }
