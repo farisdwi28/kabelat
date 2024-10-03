@@ -18,3 +18,6 @@ Route::get('/BuatAkun', function () {
     return view('BuatAkun');
 });
 
+Route::get('/ProgramDispusip', function () {
+    return view('ProgramDispusip');
+});

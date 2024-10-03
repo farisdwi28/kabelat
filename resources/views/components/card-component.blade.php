@@ -1,5 +1,5 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg flex flex-col h-50">
-    <img class="w-full h-48 object-cover" src="{{ $image }}" alt="{{ $title }}">
+<div class="max-w-sm overflow-hidden">
+    <img class="w-full h-60 object-cover" src="{{ $image }}" alt="{{ $title }}">
     <div class="px-6 py-4 flex-grow">
         @if($date)
             <div class="font-bold text-sm mb-2 text-gray-500">
