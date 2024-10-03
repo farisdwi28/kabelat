@@ -17,3 +17,4 @@ Route::get('/daftar', function () {
 Route::get('/BuatAkun', function () {
     return view('BuatAkun');
 });
+

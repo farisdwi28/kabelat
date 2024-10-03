@@ -116,6 +116,8 @@
 
     <x-carousel-component :slides="$slides2" heading="Forum Komunitas" />
     <script src="./node_modules/preline/dist/preline.js"></script>
+    <x-footer />
+
 </body>
 
 </html>
